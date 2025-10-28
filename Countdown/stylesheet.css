@@ -56,14 +56,15 @@ input[type="range"]::before {
     top: 0;
     left: 0;
     height: 80px;
-    width: 800px; /* 全幅を塗りパターンにする */
+    width: 100%;
     background: repeating-linear-gradient(
         to right,
         #e74c3c 0 8%,
         transparent 8% 10%
     );
     border-radius: 8px;
-    clip-path: polygon(0 0, calc(var(--progress) * 1%) 0, calc(var(--progress) * 1%) 100%, 0 100%);
     z-index: 2;
-    transition: clip-path 1s cubic-bezier(0.22, 1, 0.36, 1);
+    mask-image: linear-gradient(to right, black calc(var(--progress) * 1%), transparent 0);
+    -webkit-mask-image: linear-gradient(to right, black calc(var(--progress) * 1%), transparent 0);
 }
+
